@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.spec
+
+# Virtual environment
+talksync_env/
+venv/
+env/
+.env
+
+# Audio temp files
+voice.mp3
+voice_pa.mp3
+voice.wav
+*.mp3
+*.wav
+
+# PyInstaller
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets — never upload API keys
+secrets.py
+config.py
