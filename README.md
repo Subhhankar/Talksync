@@ -130,5 +130,69 @@ TalkSync/
 ├── translator.py        # Main application
 ├── requirements.txt     # Python dependencies
 ├── screenshot.png       # App screenshot
+├── .gitignore           # Git ignore rules
 └── README.md            # This file
+```
+
+---
+
+## Future Improvements
+
+### Upgrade with Paid APIs
+
+| Feature | Free (Current) | Paid Upgrade | Benefit |
+|---|---|---|---|
+| Speech Recognition | Google Speech API | **AssemblyAI / Deepgram** | 3x faster, better accuracy in noisy calls |
+| Translation | Google Translate | **DeepL API** | More natural, context-aware translations |
+| Hindi/English TTS | Microsoft Edge TTS | **ElevenLabs** | Clone any voice, ultra-realistic output |
+| Punjabi TTS | gTTS + pitch shift | **Sarvam AI Pro** | Real native Punjabi male/female voices |
+| Noise Cancellation | None | **Krisp API** | Remove background noise from calls |
+| Speaker Detection | None | **Deepgram Diarization** | Know who is speaking in group calls |
+
+#### Recommended paid stack for production:
+```
+Speech-to-Text  →  Deepgram Streaming  (~$0.004/min)
+Translation     →  DeepL API           (~$5/month free tier)
+TTS             →  ElevenLabs          (~$5/month starter)
+Punjabi TTS     →  Sarvam AI           (~₹1000 free credits)
+```
+
+---
+
+### Role-Based Access for Teams
+
+Different team members get different features based on their role:
+
+#### Agent (Call Center Staff)
+- Can only use assigned language pair (e.g. EN → HI only)
+- Cannot change voice gender or settings
+- Translation starts automatically when app opens
+- No access to logs or history
+
+#### Team Lead / Supervisor
+- Can use all 4 translation modes
+- Can switch between Male / Female voice
+- Can view live activity log
+- Can monitor agent session count
+
+#### Admin
+- Full access to all features
+- Can assign language modes to agents
+- Can configure API keys from UI (no code editing)
+- Can export translation logs as CSV
+- Can set usage limits per agent
+
+#### How to implement role-based access:
+```
+1. Add a login screen on startup (username + password)
+2. Store roles in a local config file or database (SQLite)
+3. On login — load role permissions and lock/unlock UI buttons
+4. Admin panel — separate window to manage users and roles
+```
+
+#### Suggested tech for user management:
+```
+Local (simple)   →  SQLite + bcrypt password hashing
+Cloud (scalable) →  Firebase Authentication (free tier)
+Enterprise       →  Active Directory / LDAP integration
 ```
